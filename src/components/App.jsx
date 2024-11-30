@@ -1,73 +1,56 @@
-import React,{useState,useEffect} from "react";
-import ReactMarkdown from "react-markdown";
-import './App.css';
+// // src/App.jsx
+// import React, { useState, useEffect } from 'react';
+// import { marked } from 'marked';
+// import './App.css';
 
-function App(){
+// const App = () => {
+//   const [markdown, setMarkdown] = useState('# Hello, Markdown!');
+//   const [htmlContent, setHtmlContent] = useState('');
+//   const [isLoading, setIsLoading] = useState(true);
 
-  const [markdown,setMarkdown] = useState("")
-  const [loading,setLoading] = useState(true)
+//   useEffect(() => {
+//     // Simulate loading
+//     const timeout = setTimeout(() => {
+//       setIsLoading(false);
+//       setHtmlContent(marked(markdown));
+//     }, 1000);
 
-  const handleChange = (e) =>{
-    setMarkdown(e.target.value)
-  }
-  
-  const changeLoadingVar = () => {
-    setLoading(false)
-  }
+//     return () => clearTimeout(timeout);
+//   }, [markdown]);
 
-  useEffect(() => {
-    setTimeout(changeLoadingVar,3000)
-  },[]);
+//   const handleChange = (e) => {
+//     setMarkdown(e.target.value);
+//   };
 
-    if(loading){
-      return (<div><h1>Loading...</h1></div>)
-    }
- 
-    return(
-      <div className="app">
-        <textarea onChange={handleChange}/>
-        <ReactMarkdown className="preview" children={markdown}/>
-      </div>
-    )
+//   return (
+//     <div className="app">
+//       {isLoading ? (
+//         <div className="loading">Loading...</div>
+//       ) : (
+//         <>
+//           <textarea
+//             className="textarea"
+//             value={markdown}
+//             onChange={handleChange}
+//           />
+//           <div
+//             className="preview"
+//             dangerouslySetInnerHTML={{ __html: htmlContent }}
+//           />
+//         </>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default App;
+
+import React from 'react'
+
+const App = () => {
+  return (
+    <div>App</div>
+  )
 }
 
-// class App extends React.Component{
-
-//   constructor(props){
-//     super(props)
-//     this.state = {
-//       markdown: "",
-//       loading: true
-//     }
-//     this.handleChange = this.handleChange.bind(this);
-//     this.changeLoadingVar = this.changeLoadingVar.bind(this);
-//   }
-//   handleChange(e){
-//     this.setState({
-//       markdown: e.target.value
-//     })
-//   }
-//   changeLoadingVar(){
-//     this.setState({
-//       loading: false
-//     })
-//   }
-
-//   componentDidMount(){
-//     setTimeout(this.changeLoadingVar,3000)
-//   }
-//   render(){
-//     if(this.state.loading){
-//       return (<div><h1>Loading...</h1></div>)
-//     }
- 
-//     return(
-//       <div className="app">
-//         <textarea onChange={this.handleChange}/>
-//         <ReactMarkdown className="preview" children={this.state.markdown}/>
-//       </div>
-//     )
-//   }
-// }
-
-export default App;
+export default App
